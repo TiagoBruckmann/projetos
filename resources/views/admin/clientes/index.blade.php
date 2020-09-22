@@ -17,9 +17,8 @@
                 <tbody>
                     @foreach($registros as $registro)
                         <tr>
-                            <td>{{ $registro->cliente }}</td>
+                            <td>{{ $registro->clientes }}</td>
                             <td>{{ $registro->fone }}</td>
-                            <td><img width="80px" src="{{ $registro->clientes }}"></td>
                             <td>
                                 <a class="btn deep-black" onclick="editar()" href="{{ route('admin.clientes.editar', $registro->id) }}">Editar</a>
                                 <a class="btn deep-black" onclick="deletar()" href="{{ route('admin.clientes.deletar', $registro->id) }}">Deletar</a>

@@ -22,12 +22,12 @@
                     
                     @foreach ($registros as $registro)
                         <tr>
-                            <td>{{ $registro->projeto }}</td>
-                            <td>{{ $registro->cliente }}</td>
+                            <td>{{ $registro->projetos  }}</td>
+                            <td>{{ $registro->id_cliente }}</td>
                             <td>{{ $registro->vl_acordado }}</td>
                             <td>{{ $registro->vl_recebido }}</td>
                             <td>{{ $registro->dt_pagamento }}</td>
-                            <td><img width="80px" src="{{ asset ($registro->imagem) }}" alt="{{ $registro->cliente }}"></td>
+                            <td><img width="80px" src="{{ asset ($registro->imagem) }}" alt="{{ $registro->id_cliente }}"></td>
                             <td>
                                 <a class="btn green" onclick="editar()" href="{{ route('admin.projetos.editar', $registro->id) }}">Editar</a>
                                 <a class="btn red" onclick="deletar()" href="{{ route('admin.projetos.deletar', $registro->id) }}">Deletar</a>

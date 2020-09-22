@@ -30,7 +30,7 @@ class ClientesController extends Controller
         return view('admin.clientes.editar', compact('registro'));
     }
 
-    public function atualizar($id){
+    public function atualizar(Request $req, $id){
         $dados = $req->all();
 
         Clientes::find($id)->update($dados);
