@@ -24,6 +24,7 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="/">Home</a></li>
                 <li><a href="{{route('admin.projetos')}}">Projetos</a></li>
+                <li><a href="{{route('admin.clientes')}}">Clientes</a></li>
             </ul>
             </div>
         </nav>
@@ -31,5 +32,6 @@
         <ul class="sidenav" id="mobile">
             <li><a href="/">Home</a></li>
             <li><a href="{{route('admin.projetos')}}">Projetos</a></li>
+            <li><a href="{{route('admin.clientes')}}">Clientes</a></li>
         </ul>
     </header>

@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Projetos;
 
 class ProjetosController extends Controller
 {
     public function index(){
-        $registros = Projeto::all();
+        $registros = Projetos::all();
         return view('admin.projetos.index', compact('registros'));
     }
 
@@ -22,21 +23,21 @@ class ProjetosController extends Controller
         if($req->hasFile('imagem')){
             $imagem = $req->file('imagem');
             $num = rand(1111,9999);
-            $dir = "img/cursos/";
+            $dir = "img/projetos/";
             $ex = $imagem->guessClientExtension();
             $nomeImagem = "imagem_".$num.".".$ex;
             $imagem->move($dir, $nomeImagem);
             $dados['imagem'] = $dir."/".$nomeImagem;
         }
 
-        Projeto::create($dados);
+        Projetos::create($dados);
 
         return redirect()->route('admin.projetos');
 
     }
 
     public function editar($id){
-        $registro = Projeto::find($id);
+        $registro = Projetos::find($id);
         return view('admin.projetos.editar', compact('registro'));
     }
 
@@ -46,20 +47,20 @@ class ProjetosController extends Controller
         if($req->hasFile('imagem')){
             $imagem = $req->file('imagem');
             $num = rand(1111,9999);
-            $dir = "img/cursos/";
+            $dir = "img/projetos/";
             $ex = $imagem->guessClientExtension();
             $nomeImagem = "imagem_".$num.".".$ex;
             $imagem->move($dir, $nomeImagem);
             $dados['imagem'] = $dir."/".$nomeImagem;
         }
 
-        Projeto::find($id)->update($dados);
+        Projetos::find($id)->update($dados);
 
         return redirect()->route('admin.projetos');
     }
 
     public function deletar($id){
-        Projeto::find($id)->delete();
+        Projetos::find($id)->delete();
         return redirect()->route('admin.projetos');
     }
 }
